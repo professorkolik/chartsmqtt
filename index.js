@@ -21,7 +21,9 @@
       this.chartElement = this.body.querySelector('[data-chart]');
 
       this.requestCount = 0;
-      this.requestLimit = 7;
+      this.requestLimit = 6;
+
+      this.refreshData = false;
 
       if (this.chartElement) {
         this.chartElementContext = this.chartElement.getContext('2d')
@@ -82,17 +84,15 @@
           return false;
         }
 
-        self.requestCount++;
+        self.moveChart(self.chart, data, self.refreshData);
 
-        self.moveChart(self.chart, data);
-
-        if (self.requestCount >= self.requestLimit) {
-          self.chart.config.data.labels = [];
-          self.chart.data.datasets.forEach(function(dataset, index) {
-            dataset.data = [];
-          });
+        if (self.requestCount < self.requestLimit) {
+          self.requestCount++;
+        } else {
+          self.refreshData = true;
           self.requestCount = 0;
         }
+
 
         setTimeout(function () {
             self.updateChartData(self.requestCount);
@@ -102,18 +102,32 @@
       });
     },
 
-    moveChart: function (chart, newData) {
-      // add new label at end
-      newData.forEach(function (item) {
-        chart.config.data.labels.push(new Date(item.timestamp));
-      });
-
-      // add new data at end
-      chart.data.datasets.forEach(function(dataset, index) {
-        newData.forEach(function (item) {
-          dataset.data.push(item['value' + (index + 1)]);
+    moveChart: function (chart, newData, refreshData) {
+      if (refreshData) {
+        chart.config.data.labels = newData.map(function (item) {
+          return new Date(item.timestamp);
         });
-      });
+
+        chart.data.datasets.forEach(function(dataset, index) {
+          dataset.data = newData.map(function (item) {
+            return item['value' + (index + 1)];
+          });
+        });
+
+        this.refreshData = false;
+      } else {
+        // add new label at end
+        newData.forEach(function (item) {
+          chart.config.data.labels.push(new Date(item.timestamp));
+        });
+
+        // add new data at end
+        chart.data.datasets.forEach(function(dataset, index) {
+          newData.forEach(function (item) {
+            dataset.data.push(item['value' + (index + 1)]);
+          });
+        });
+      }
 
       chart.update();
     },
