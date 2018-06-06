@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "title": "Title 1",
+      "timestamp": 1528281234,
+      "value1": 500,
+      "value2": 20
+    },
+    {
+      "title": "Title 2",
+      "timestamp": 1528283255,
+      "value1": 700,
+      "value2": 50
+    },
+    {
+      "title": "Title 3",
+      "timestamp": 1528284235,
+      "value1": 450,
+      "value2": 25
+    },
+    {
+      "title": "Title 4",
+      "timestamp": 1528288442,
+      "value1": 365,
+      "value2": 89
+    }
+  ]
+}
