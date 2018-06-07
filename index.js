@@ -42,13 +42,15 @@
               borderColor: "rgb(255, 99, 132)",
               data: [],
               fill: false,
+              yAxisID: 'y-axis-1'
             },
             {
               label: 'Second dataset',
               backgroundColor: "rgb(75, 192, 192)",
               borderColor: "rgb(75, 192, 192)",
               data: [],
-              fill: false
+              fill: false,
+              yAxisID: 'y-axis-2'
             }
           ],
         },
@@ -60,6 +62,14 @@
               {
                 type: 'linear',
                 display: true,
+                position: 'left',
+                id: 'y-axis-1'
+              },
+              {
+                type: 'linear',
+                display: true,
+                position: 'right',
+                id: 'y-axis-2'
               }
             ],
             xAxes: [{
