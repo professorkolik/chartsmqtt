@@ -1,0 +1,33 @@
+{
+  "name": "chartjs",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.1.0",
+    "apollo-client": "^2.0.3",
+    "apollo-link": "^1.0.3",
+    "apollo-link-http": "^1.2.0",
+    "aws-appsync": "^1.0.0",
+    "aws-sdk": "^2.141.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "chart.js": "^2.7.2",
+    "es6-promise": "^4.1.1",
+    "graphql": "^0.11.7",
+    "graphql-tag": "^2.5.0",
+    "isomorphic-fetch": "^2.2.1",
+    "ws": "^5.2.0"
+  },
+  "scripts": {
+    "dev": "webpack --mode=development --config=webpack.config.js",
+    "prod": "webpack -p --mode=production --config=webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.3"
+  }
+}
