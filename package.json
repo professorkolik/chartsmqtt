@@ -21,8 +21,8 @@
     "ws": "^5.2.0"
   },
   "scripts": {
-    "dev": "webpack --mode=development --config=webpack.config.js",
-    "prod": "webpack -p --mode=production --config=webpack.config.js"
+    "dev": "export NODE_ENV=development || set NODE_ENV=development && webpack --config=webpack.config.js",
+    "prod": "export NODE_ENV=production || set NODE_ENV=production && webpack -p --config=webpack.config.js"
   },
   "author": "",
   "license": "ISC",

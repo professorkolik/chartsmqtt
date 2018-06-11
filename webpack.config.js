@@ -1,13 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const NODE_ENV = process.env.NODE_ENV.trim();
+const isDevelopment = NODE_ENV === 'development';
+
 module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
-  watch: process.env.WEBPACK_MODE !== 'production',
+  watch: isDevelopment,
   watchOptions: {
     aggregateTimeout: 300,
     poll: 1000
@@ -32,7 +35,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
     })
   ],
   node: {
