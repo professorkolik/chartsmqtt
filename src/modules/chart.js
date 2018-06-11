@@ -96,16 +96,3 @@ class Chart {
 }
 
 export default Chart;
-
-
-// function moveChart(chart, newData) {
-//     chart.data.labels.push('new label'); // add new label at end
-//     chart.data.labels.splice(0, 1); // remove first label
-
-//     chart.data.datasets.forEach(function(dataset, index) {
-//         dataset.data.push(newData[index]); // add new data at end
-//         dataset.data.splice(0, 1); // remove first data point
-//     });
-
-//     chart.update();
-// }
