@@ -18,7 +18,7 @@ const region = aws_exports.REGION;
 const type = AUTH_TYPE.API_KEY;
 
 // If you want to use API key-based auth
-const apiKey = 'da2-vrivdjhd4vd2tng7euea3ji5eq';
+const apiKey = 'da2-hyeonlq65feh7c32wct434uqfi';
 
 AWS.config.update({
   region: aws_exports.REGION
